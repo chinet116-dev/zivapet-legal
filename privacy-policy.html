@@ -52,101 +52,132 @@
     <header>
       <div class="eyebrow">ZivaPet</div>
       <h1>Privacy Policy</h1>
-      <div class="meta">Effective date: May 26, 2026 · Last updated: May 26, 2026</div>
+      <div class="meta">Effective date: May 27, 2026 · Last updated: May 27, 2026</div>
     </header>
 
     <p class="lead">
-      ZivaPet is built privacy-first. Your pet records live on your device, not on our servers.
-      We don't require an account, we don't run ads, and we never sell your data.
+      ZivaPet is local-first. By default the app needs <strong>no account</strong> and your pet
+      records stay <strong>on your device</strong>. <strong>Family sharing is optional</strong> — if
+      you turn it on, you sign in with Apple and your household's pet data is uploaded to our backend
+      so the family members you invite can see and update it. We don't run ads and we never sell your
+      data.
     </p>
 
     <h2>1. Who we are</h2>
     <p>
-      ZivaPet ("ZivaPet", "we", "us", or "our") provides a mobile application that helps people
-      track the health records of their pets — vaccines, deworming, vet visits, medications, weight,
-      and care reminders. This Privacy Policy explains how the ZivaPet app handles information.
+      ZivaPet ("ZivaPet", "we", "us", or "our") provides a mobile application that helps people track
+      the health records of their pets — vaccines, deworming, vet visits, medications, weight, and
+      care reminders. This Privacy Policy explains how the ZivaPet app handles information.
     </p>
 
     <h2>2. Information we collect</h2>
-    <p>
-      We designed ZivaPet so that the app does <strong>not</strong> collect your personal information
-      or your pets' information on our servers. Specifically:
-    </p>
+    <h3>2.1 Stored only on your device (default)</h3>
     <ul>
-      <li><strong>Pet and health data you enter</strong> (pet profiles, health records, weight entries,
-        notes, microchip numbers, emergency info) is stored <strong>locally on your device only</strong>.
-        We do not receive, transmit, or have access to it.</li>
-      <li><strong>App settings</strong> (reminder preferences, weight unit, subscription status) are
-        also stored locally on your device.</li>
-      <li><strong>No account</strong> is required to use ZivaPet. We do not ask for your name, email,
-        or phone number to operate the app.</li>
-      <li><strong>No analytics or tracking.</strong> ZivaPet does not include third-party advertising,
+      <li><strong>Pet and health data you enter</strong> — pet profiles, health records, weight
+        entries, notes, microchip numbers, emergency info.</li>
+      <li><strong>App settings</strong> — reminder preferences, weight unit, cached subscription
+        status.</li>
+    </ul>
+    <p>If you never enable family sharing, this data never leaves your device and we have no account
+      for you and no access to it.</p>
+
+    <h3>2.2 Collected only if you enable family sharing</h3>
+    <ul>
+      <li><strong>Account</strong> — when you turn on sharing you authenticate with
+        <strong>Sign in with Apple</strong>. We receive a user identifier and your
+        <strong>email address</strong> (which may be Apple's private "hide my email" relay address),
+        and a display name if you choose to provide one.</li>
+      <li><strong>Your household's pet data</strong> — the pet profiles, health records, and weight
+        entries in your household are <strong>uploaded to and stored on our backend</strong> so they
+        can sync to other members.</li>
+      <li><strong>Household &amp; sharing data</strong> — your household, its members and roles, your
+        pending email invitations (the email and a one-time invite token), and an activity log of who
+        changed what (used for the in-app activity feed).</li>
+      <li><strong>Subscription status</strong> — whether the household has an active Pro entitlement.</li>
+    </ul>
+
+    <h3>2.3 What we never collect</h3>
+    <ul>
+      <li><strong>No advertising or tracking.</strong> ZivaPet contains no third-party advertising,
         analytics, or tracking SDKs, and does not use the device advertising identifier (IDFA).</li>
+      <li><strong>No payment details.</strong> Card and billing data are handled by Apple; we never
+        see or store them.</li>
     </ul>
 
     <h2>3. Notifications</h2>
     <p>
-      Care reminders are scheduled as <strong>local notifications</strong> on your device. They are
-      generated on-device from the data you enter and are not sent through our servers. You can grant
-      or revoke notification permission at any time in your device Settings, and you can turn reminders
-      on or off within the app.
+      Care reminders are scheduled as <strong>local notifications</strong> on each device, generated
+      on-device from your data — they are not sent through our servers. You can grant or revoke
+      notification permission in your device Settings and turn reminders on or off in the app. In a
+      shared household, each member's device schedules its own reminders, and each member can mute
+      their own.
     </p>
 
     <h2>4. Subscriptions and payments</h2>
     <p>
-      ZivaPet Pro is an auto-renewable subscription offered through the Apple App Store. Purchases,
-      billing, and renewals are handled entirely by <strong>Apple</strong>. We do not receive or store
-      your payment card details. The app stores only a local flag indicating whether Pro features are
-      unlocked. Apple's handling of your purchase is governed by
+      ZivaPet Pro is an auto-renewable subscription sold through the Apple App Store. Purchases,
+      billing, and renewals are handled by <strong>Apple</strong>. We use
+      <strong>RevenueCat</strong> to manage and verify subscription state; RevenueCat receives a
+      subscription identifier tied to your account but not your payment details. For family sharing,
+      your household's Pro status is stored on our backend so invited members get Pro features without
+      paying separately. Apple's handling of your purchase is governed by
       <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>.
     </p>
 
-    <h2>5. Optional cloud backup &amp; family sharing</h2>
+    <h2>5. Family sharing &amp; our backend</h2>
     <p>
-      ZivaPet may offer optional encrypted cloud backup and family sharing. These features are
-      <strong>off by default</strong>. If you choose to enable them, your data is encrypted on your
-      device (AES-256) before it leaves it, and synced through Apple's iCloud / CloudKit so that only
-      you and the family members you invite can read it. We do not operate our own servers that can
-      read your data, and we cannot decrypt your backups.
+      Family sharing is <strong>off by default</strong>. When you enable it, your household's pet data
+      is uploaded to our backend, which is hosted by <strong>Supabase</strong> (a managed PostgreSQL
+      platform). Access is restricted by row-level security so that <strong>only members of your
+      household</strong> can read or change your household's data. Data is encrypted in transit (TLS)
+      and at rest by the hosting provider.
+    </p>
+    <p>
+      <strong>Please note:</strong> this data is <strong>not end-to-end encrypted</strong>. As the
+      operator of the backend, ZivaPet is technically able to access stored data (for example to
+      operate, debug, or comply with law). We do not sell it, use it for advertising, or share it
+      except with the sub-processors listed below.
     </p>
 
     <h2>6. How information is used</h2>
-    <p>Information you enter is used solely to provide app functionality on your device:</p>
     <ul>
-      <li>Display your pets, records, and weight trends.</li>
-      <li>Calculate due dates and schedule local reminders.</li>
+      <li>Display your pets, records, and weight trends, and schedule local reminders.</li>
       <li>Generate PDF health reports that you choose to export and share.</li>
-      <li>Sync across your devices and chosen family members (only if you enable cloud features).</li>
+      <li>If you enable sharing: sync your household's data across members in real time, attribute
+        changes in the activity feed, send email invitations, and unlock Pro for the household.</li>
     </ul>
 
-    <h2>7. How information is shared</h2>
-    <p>
-      We do <strong>not</strong> sell, rent, or share your personal or pet data with third parties for
-      their marketing. Data leaves your device only when <em>you</em> initiate it — for example, when
-      you export a PDF and share it with your vet, or enable family sharing. The only third party
-      involved in normal operation is Apple, which processes your subscription.
-    </p>
+    <h2>7. How information is shared (sub-processors)</h2>
+    <p>We do <strong>not</strong> sell, rent, or share your data for anyone's marketing. Data leaves
+      your device only when you initiate it (exporting a PDF, or enabling sharing). We rely on these
+      sub-processors:</p>
+    <ul>
+      <li><strong>Apple</strong> — Sign in with Apple (authentication) and App Store payments.</li>
+      <li><strong>Supabase</strong> — hosts the backend database and authentication for family sharing.</li>
+      <li><strong>RevenueCat</strong> — subscription management and verification.</li>
+    </ul>
     <div class="callout">
-      🔒 <strong>Our promise:</strong> local-first storage, AES-256 encrypted backups, never sold,
-      export your data anytime.
+      🔒 <strong>Our promise:</strong> local-first by default, no account unless you share, access
+      limited to your household, never sold, export or delete anytime.
     </div>
 
     <h2>8. Data retention and deletion</h2>
     <table>
       <tr><th>Data</th><th>Where it lives</th><th>How to delete it</th></tr>
       <tr><td>Pets, records, weights, settings</td><td>On your device</td><td>Delete items in-app, or uninstall the app to remove all local data</td></tr>
-      <tr><td>Encrypted cloud backup (if enabled)</td><td>Your iCloud account</td><td>Turn off backup in-app and/or manage data in your iCloud settings</td></tr>
+      <tr><td>Shared household data (if sharing is on)</td><td>Our backend (Supabase)</td><td>Leave the household to lose access, or delete your account (Settings → Delete account) to erase your account; deleting an owner's account removes the household and its shared records</td></tr>
       <tr><td>Subscription record</td><td>Your Apple ID</td><td>Manage in <a href="https://apps.apple.com/account/subscriptions">App Store subscription settings</a></td></tr>
     </table>
-    <p>You can export your full records to PDF at any time from within the app.</p>
+    <p>In-app <strong>account deletion</strong> permanently removes your account and the data
+      described above. You can also export your full records to PDF at any time.</p>
 
     <h2>9. Your privacy rights</h2>
     <p>
-      Because your data is stored on your own device and under your control, you can access, correct,
-      export, or delete it directly within the app at any time. Depending on where you live (for
-      example under the GDPR or CCPA/CPRA), you may have additional rights regarding personal data.
-      Since we do not collect or hold your personal data on our servers, there is generally nothing for
-      us to retrieve or erase on your behalf — but you may still contact us with any question or request.
+      For data on your device, you can access, correct, export, or delete it directly in the app at
+      any time. If you enable family sharing, we hold some personal data (your account and your
+      household's pet data) on our backend; you can delete it via in-app account deletion, and —
+      depending on where you live (e.g. under the GDPR or CCPA/CPRA) — you may have additional rights
+      to access, correct, port, or erase personal data. Contact us with any such request.
     </p>
 
     <h2>10. Children's privacy</h2>
@@ -157,30 +188,31 @@
 
     <h2>11. Security</h2>
     <p>
-      Data on your device is protected by the operating system's app sandbox and device-level
-      protections. Optional cloud backups are encrypted on-device with AES-256 before upload. No method
-      of storage or transmission is 100% secure, but we design ZivaPet to minimize the data that ever
-      leaves your device.
+      Data on your device is protected by the operating system's app sandbox. Shared data is
+      transmitted over TLS, encrypted at rest by the hosting provider, and access-controlled by
+      row-level security so only your household members can read it. It is not end-to-end encrypted.
+      No method of storage or transmission is 100% secure, but we design ZivaPet to minimize the data
+      that ever leaves your device.
     </p>
 
     <h2>12. International users</h2>
     <p>
-      ZivaPet can be used worldwide. Because data is stored locally on your device, it remains in your
-      possession. If you enable iCloud-based features, Apple may store your encrypted data on
-      infrastructure in various regions per Apple's policies.
+      ZivaPet can be used worldwide. Device data stays in your possession. If you enable family
+      sharing, your data is processed and stored by Supabase and may be hosted in regions outside your
+      country; Apple and RevenueCat may likewise process data per their own policies.
     </p>
 
     <h2>13. Changes to this policy</h2>
     <p>
-      We may update this Privacy Policy from time to time. When we do, we will revise the "Last updated"
-      date above and, where appropriate, provide notice within the app. Continued use of ZivaPet after
-      changes take effect constitutes acceptance of the updated policy.
+      We may update this Privacy Policy from time to time. When we do, we will revise the "Last
+      updated" date above and, where appropriate, provide notice within the app. Continued use of
+      ZivaPet after changes take effect constitutes acceptance of the updated policy.
     </p>
 
     <h2>14. Contact us</h2>
     <p>
       Questions about this Privacy Policy or your data? Contact us at
-      <a href="mailto:privacy@zivapet.app">privacy@zivapet.app</a>.
+      <a href="mailto:wjung521@gmail.com">wjung521@gmail.com</a>.
     </p>
 
     <footer>
